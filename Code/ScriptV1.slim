@@ -75,7 +75,7 @@ initialize() {
 				sim.subpopulations[i-1].setMigrationRates(j, m);
 	}
 
-1:100000 late(){
+1:25000 late(){
 	for (g in sim.subpopulations.individuals)
 		{
 		if (any(g.genomes.containsMarkerMutation(m21,1000000)))
@@ -327,7 +327,7 @@ fitness(NULL,p10) {
 	}
 
 
-1000 late(){
+25000 late(){
 //allIndividuals = sim.subpopulations.individuals;
 //sampledIndividuals = sample(allIndividuals, 10);// Sample 10 individual
 //p1.outputVCFSample(30, filePath=paste(c("Output/m=", m, "_u=", mu, "_ID=", simID, "g120000_30Samp.vcf"), sep=""));//to use a string variable : slim  -d "output='test2.txt'" ScriptNeutralInversionAggregate.slim
