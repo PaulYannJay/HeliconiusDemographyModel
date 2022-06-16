@@ -326,7 +326,7 @@ return weights * ifelse(Parent2SimilarPheno, AssortForce, 1.0);
 		}
 		pi = PiTotal / p1.individuals.size();
 		pi_S = PiTotal_S / p1.individuals.size();
-		line=paste(c(mu,"\t",AssortForce,"\t",Rep,"\t",simID,"\t",sim.generation,"\t", meanNbMut1,"\t", meanNbMut5,"\t", meanNbMut10,"\t", NmutS, "\t", MeanFreqS, "\t", pi, "\t", pi_S)); //output the frequency of a given mutation
+		line=paste(c(mu,"\t",m,"\t",AssortForce,"\t",LocalAdaptForce,"\t",Rep,"\t",simID,"\t",sim.generation,"\t", meanNbMut1,"\t", meanNbMut5,"\t", meanNbMut10,"\t", NmutS, "\t", MeanFreqS, "\t", pi, "\t", pi_S)); //output the frequency of a given mutation
 		writeFile(paste(c("../Output/Polymorphism_MateChoice_Stat.txt"), sep=""), line, append=T);
 		}
 	}
