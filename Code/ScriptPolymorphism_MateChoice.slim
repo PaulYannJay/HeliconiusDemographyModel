@@ -75,7 +75,7 @@ initialize() {
 				sim.subpopulations[i-1].setMigrationRates(j, m);
 	}
 
-1:25000 late(){
+1: late(){
 	for (g in sim.subpopulations.individuals)
 		{
 		if (any(g.genomes.containsMarkerMutation(m21,1000000)))
@@ -232,51 +232,51 @@ return weights * ifelse(Parent2SimilarPheno, AssortForce, 1.0);
 }
 
 //15000:115000 early() { //introducing inversion regularly
-1:25000 early() { 
-	if (sim.generation % 10 == 2) //every 30 generation
-	//if (sim.generation % 1000 == 0) //every 30 generation
-	{
-	mut1Pop1=sum(p1.genomes.containsMarkerMutation(m21, 1000000))/2000;
-	mut2Pop1=sum(p1.genomes.containsMarkerMutation(m22, 1000000))/2000;
-	mut3Pop1=sum(p1.genomes.containsMarkerMutation(m23, 1000000))/2000;
-	mut4Pop1=sum(p1.genomes.containsMarkerMutation(m24, 1000000))/2000;
-	mut5Pop1=sum(p1.genomes.containsMarkerMutation(m25, 1000000))/2000;
-	cat(mut1Pop1 + "\n");
-	cat(mut2Pop1 + "\n");
-	cat(mut3Pop1 + "\n");
-	cat(mut4Pop1 + "\n");
-	cat(mut5Pop1 + "\n");
-	mut1Pop9=sum(p9.genomes.containsMarkerMutation(m21, 1000000))/2000;
-	mut2Pop9=sum(p9.genomes.containsMarkerMutation(m22, 1000000))/2000;
-	mut3Pop9=sum(p9.genomes.containsMarkerMutation(m23, 1000000))/2000;
-	mut4Pop9=sum(p9.genomes.containsMarkerMutation(m24, 1000000))/2000;
-	mut5Pop9=sum(p9.genomes.containsMarkerMutation(m25, 1000000))/2000;
-	cat(mut1Pop9 + "\n");
-	cat(mut2Pop9 + "\n");
-	cat(mut3Pop9 + "\n");
-	cat(mut4Pop9 + "\n");
-	cat(mut5Pop9 + "\n");
-	mut1=sim.mutationsOfType(m21);
-	mut2=sim.mutationsOfType(m22);
-	mut3=sim.mutationsOfType(m23);
-	mut4=sim.mutationsOfType(m24);
-	mut5=sim.mutationsOfType(m25);
-	Freq1=sum(sim.mutationFrequencies(NULL, mut1));
-	Freq2=sum(sim.mutationFrequencies(NULL, mut2));
-	Freq3=sum(sim.mutationFrequencies(NULL, mut3));
-	Freq4=sum(sim.mutationFrequencies(NULL, mut4));
-	Freq5=sum(sim.mutationFrequencies(NULL, mut5));
-	cat(sim.generation + "\n");
-	catn("Freq1=" + Freq1);
-	catn("Freq2=" + Freq2);
-	catn("Freq3=" + Freq3);
-	catn("Freq4=" + Freq4);
-	catn("Freq5=" + Freq5 + "\n");
-	}
-}
+//1:25000 early() { 
+//	if (sim.generation % 10 == 2) //every 30 generation
+//	//if (sim.generation % 1000 == 0) //every 30 generation
+//	{
+//	mut1Pop1=sum(p1.genomes.containsMarkerMutation(m21, 1000000))/2000;
+//	mut2Pop1=sum(p1.genomes.containsMarkerMutation(m22, 1000000))/2000;
+//	mut3Pop1=sum(p1.genomes.containsMarkerMutation(m23, 1000000))/2000;
+//	mut4Pop1=sum(p1.genomes.containsMarkerMutation(m24, 1000000))/2000;
+//	mut5Pop1=sum(p1.genomes.containsMarkerMutation(m25, 1000000))/2000;
+//	cat(mut1Pop1 + "\n");
+//	cat(mut2Pop1 + "\n");
+//	cat(mut3Pop1 + "\n");
+//	cat(mut4Pop1 + "\n");
+//	cat(mut5Pop1 + "\n");
+//	mut1Pop9=sum(p9.genomes.containsMarkerMutation(m21, 1000000))/2000;
+//	mut2Pop9=sum(p9.genomes.containsMarkerMutation(m22, 1000000))/2000;
+//	mut3Pop9=sum(p9.genomes.containsMarkerMutation(m23, 1000000))/2000;
+//	mut4Pop9=sum(p9.genomes.containsMarkerMutation(m24, 1000000))/2000;
+//	mut5Pop9=sum(p9.genomes.containsMarkerMutation(m25, 1000000))/2000;
+//	cat(mut1Pop9 + "\n");
+//	cat(mut2Pop9 + "\n");
+//	cat(mut3Pop9 + "\n");
+//	cat(mut4Pop9 + "\n");
+//	cat(mut5Pop9 + "\n");
+//	mut1=sim.mutationsOfType(m21);
+//	mut2=sim.mutationsOfType(m22);
+//	mut3=sim.mutationsOfType(m23);
+//	mut4=sim.mutationsOfType(m24);
+//	mut5=sim.mutationsOfType(m25);
+//	Freq1=sum(sim.mutationFrequencies(NULL, mut1));
+//	Freq2=sum(sim.mutationFrequencies(NULL, mut2));
+//	Freq3=sum(sim.mutationFrequencies(NULL, mut3));
+//	Freq4=sum(sim.mutationFrequencies(NULL, mut4));
+//	Freq5=sum(sim.mutationFrequencies(NULL, mut5));
+//	cat(sim.generation + "\n");
+//	catn("Freq1=" + Freq1);
+//	catn("Freq2=" + Freq2);
+//	catn("Freq3=" + Freq3);
+//	catn("Freq4=" + Freq4);
+//	catn("Freq5=" + Freq5 + "\n");
+//	}
+//}
 
-1:25000 late(){
-	if (sim.generation % 100 == 1) //output every 100 generation for plottting
+1: late(){
+	if (sim.generation % 1000 == 1) //output every 100 generation for plottting
 		{
 		Genomes=p1.genomes; // All genomes
 		NMutVec1=c();
@@ -327,15 +327,15 @@ return weights * ifelse(Parent2SimilarPheno, AssortForce, 1.0);
 		pi = PiTotal / p1.individuals.size();
 		pi_S = PiTotal_S / p1.individuals.size();
 		line=paste(c(mu,"\t",m,"\t",AssortForce,"\t",LocalAdaptForce,"\t",Rep,"\t",simID,"\t",sim.generation,"\t", meanNbMut1,"\t", meanNbMut5,"\t", meanNbMut10,"\t", NmutS, "\t", MeanFreqS, "\t", pi, "\t", pi_S)); //output the frequency of a given mutation
-		writeFile(paste(c("../Output/Polymorphism_MateChoice_Stat.txt"), sep=""), line, append=T);
+		writeFile(paste(c("../Output/Polymorphism_MateChoice_100KGen_Stat.txt"), sep=""), line, append=T);
 		}
 	}
 
 
-25000 late(){
+100000 late(){
 //allIndividuals = sim.subpopulations.individuals;
 //sampledIndividuals = sample(allIndividuals, 10);// Sample 10 individual
 //p1.outputVCFSample(30, filePath=paste(c("Output/m=", m, "_u=", mu, "_ID=", simID, "g120000_30Samp.vcf"), sep=""));//to use a string variable : slim  -d "output='test2.txt'" ScriptNeutralInversionAggregate.slim
-sim.outputFull(paste(c("../Output/Polymorphism_MateChoice_", simID,"_g25000_FullPop.txt"), sep=""));
+sim.outputFull(paste(c("../Output/Polymorphism_MateChoice_100KGen_", simID,"_g25000_FullPop.txt"), sep=""));
 sim.simulationFinished();
 }
